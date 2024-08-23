@@ -1,0 +1,13 @@
+{
+  "name": "fanbox-specification",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "bundle": "npx @redocly/cli bundle openapi/openapi.yaml",
+    "dev": "npx @redocly/cli preview-docs openapi/openapi.yaml"
+  },
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@redocly/cli": "^1.21.0"
+  }
+}

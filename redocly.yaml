@@ -1,0 +1,7 @@
+# See https://redoc.ly/docs/cli/configuration/ for more information.
+extends:
+  - recommended
+
+apis:
+  main:
+    root: openapi/openapi.yaml
