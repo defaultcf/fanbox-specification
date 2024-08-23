@@ -1,0 +1,12 @@
+listManaged:
+  get:
+    operationId: listManagedPosts
+    summary: Get posts belongs with you
+    description: Get posts belongs with you
+    security:
+      - authCookie: []
+    responses:
+      '200':
+        $ref: ../responses/post/List.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml

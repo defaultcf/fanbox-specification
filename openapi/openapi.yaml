@@ -1,0 +1,16 @@
+openapi: 3.0.3
+info:
+  title: FANBOX Specification
+  description: This is pixiv FANBOX's API specification, NOT OFFICIAL
+  version: 1.0.0
+  termsOfService: https://policies.pixiv.net/
+  contact:
+    name: defaultcf
+    url: https://github.com/defaultcf/fanbox-specification
+servers:
+  - url: https://api.fanbox.cc
+paths:
+  $ref: components/paths.yaml
+components:
+  securitySchemes:
+    $ref: components/securitySchemes.yaml

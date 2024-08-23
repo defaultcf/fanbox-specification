@@ -1,0 +1,7 @@
+title: Post
+description: ''
+type: object
+properties:
+  title:
+    type: string
+    description: Post's title

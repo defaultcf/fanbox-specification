@@ -1,0 +1,5 @@
+authCookie:
+  name: FANBOXSESSID
+  type: apiKey
+  in: cookie
+  description: You must place Session ID in cookie.

@@ -1,0 +1,2 @@
+/post.listManaged:
+  $ref: ./paths/post.yaml#/listManaged
