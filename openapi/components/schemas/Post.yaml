@@ -2,6 +2,84 @@ title: Post
 description: ''
 type: object
 properties:
+  id:
+    type: string
+    description: Post's id
   title:
     type: string
     description: Post's title
+  status:
+    type: string
+    description: Post's status
+    enum: [draft, published]
+  fee_required:
+    type: integer
+    description: Post's fee
+  updated_at:
+    type: string
+    description: Post's updated at
+  published_at:
+    type: string
+    description: Post's published at
+  body:
+    type: object
+    properties:
+      blocks:
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [p, header, image, url_embed]
+            text:
+              type: string
+            image_id:
+              type: string
+            url_embed_id:
+              type: string
+            styles:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  offset:
+                    type: integer
+                  length:
+                    type: integer
+      image_map:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            id:
+              type: string
+            extension:
+              type: string
+            original_url:
+              type: string
+            thumbnail_url:
+              type: string
+      url_embed_map:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+              enum: [html.card, html, fanbox.post, default]
+            html:
+              type: string
+            url:
+              type: string
+            post_info:
+              type: object
+              properties:
+                id:
+                  type: string
+                creator_id:
+                  type: string

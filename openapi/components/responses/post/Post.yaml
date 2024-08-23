@@ -5,6 +5,5 @@ content:
       type: object
       properties:
         body:
-          type: array
-          items:
-            $ref: ../../schemas/Post.yaml
+          $ref: ../../schemas/Post.yaml
+

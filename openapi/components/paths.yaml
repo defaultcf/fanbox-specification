@@ -1,2 +1,4 @@
 /post.listManaged:
   $ref: ./paths/post.yaml#/listManaged
+/post.getEditable:
+  $ref: ./paths/post.yaml#/getEditable

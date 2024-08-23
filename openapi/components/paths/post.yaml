@@ -10,3 +10,21 @@ listManaged:
         $ref: ../responses/post/List.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
+getEditable:
+  get:
+    operationId: getEditablePost
+    summary: Get post
+    description: Get post
+    security:
+      - authCookie: []
+    parameters:
+      - name: postId
+        in: query
+        description: post's id
+        schema:
+          type: string
+    responses:
+      '200':
+        $ref: ../responses/post/Post.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml
