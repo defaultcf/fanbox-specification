@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # debug
 
 jobs:
   build:
@@ -10,11 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - run: npm ci
+      - uses: pnpm/action-setup@v4
+      - run: pnpm i --frozen-lockfile
 
       - uses: actions/configure-pages@v5
       - name: Build page
-        run: npx @redocly/cli build-docs openapi/openapi.yaml -o dist/index.html
+        run: pnpm redocly build-docs openapi/openapi.yaml -o dist/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
