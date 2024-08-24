@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "bundle": "npx @redocly/cli bundle openapi/openapi.yaml",
-    "dev": "npx @redocly/cli preview-docs openapi/openapi.yaml"
+    "dev": "npx @redocly/cli preview-docs openapi/openapi.yaml",
+    "lint": "npx @redocly/cli lint openapi/openapi.yaml"
   },
   "license": "AGPL-3.0-only",
   "dependencies": {

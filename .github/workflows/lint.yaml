@@ -1,0 +1,12 @@
+name: Lint
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npx @redocly/cli lint openapi/openapi.yaml --format github-actions
