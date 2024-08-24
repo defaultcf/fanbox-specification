@@ -11,11 +11,11 @@ properties:
     enum: [draft, published]
   permalink:
     type: string
-  fee_required:
+  feeRequired:
     type: integer
-  updated_at:
+  updatedAt:
     type: string
-  published_at:
+  publishedAt:
     type: string
   body:
     type: object
@@ -30,9 +30,9 @@ properties:
               enum: [p, header, image, url_embed]
             text:
               type: string
-            image_id:
+            imageId:
               type: string
-            url_embed_id:
+            urlEmbedId:
               type: string
             styles:
               type: array
@@ -45,7 +45,7 @@ properties:
                     type: integer
                   length:
                     type: integer
-      image_map:
+      imageMap:
         type: object
         additionalProperties:
           type: object
@@ -54,11 +54,11 @@ properties:
               type: string
             extension:
               type: string
-            original_url:
+            originalUrl:
               type: string
-            thumbnail_url:
+            thumbnailUrl:
               type: string
-      url_embed_map:
+      urlEmbedMap:
         type: object
         additionalProperties:
           type: object
@@ -77,5 +77,5 @@ properties:
               properties:
                 id:
                   type: string
-                creator_id:
+                creatorId:
                   type: string

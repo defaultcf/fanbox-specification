@@ -1,5 +1,11 @@
-authCookie:
+SessionId:
   name: FANBOXSESSID
   type: apiKey
   in: cookie
-  description: You must place Session ID in cookie.
+  description: You must set Session ID in cookie.
+
+CSRFToken:
+  name: X-CSRF-Token
+  type: apiKey
+  in: header
+  description: You must set CSTF Token in header
