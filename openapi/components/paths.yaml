@@ -2,3 +2,7 @@
   $ref: ./paths/post.yaml#/listManaged
 /post.getEditable:
   $ref: ./paths/post.yaml#/getEditable
+/post.create:
+  $ref: ./paths/post.yaml#/create
+/post.update:
+  $ref: ./paths/post.yaml#/update

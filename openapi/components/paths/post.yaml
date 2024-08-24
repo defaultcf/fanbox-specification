@@ -10,6 +10,7 @@ listManaged:
         $ref: ../responses/post/List.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
+
 getEditable:
   get:
     operationId: getEditablePost
@@ -21,10 +22,50 @@ getEditable:
       - name: postId
         in: query
         description: post's id
+        required: true
         schema:
           type: string
     responses:
       '200':
         $ref: ../responses/post/Post.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml
+
+create:
+  post:
+    operationId: createPost
+    summary: Create post
+    description: Create post
+    security:
+      - authCookie: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                enum: [article]
+            required:
+              - type
+    responses:
+      '200':
+        $ref: ../responses/post/Create.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml
+
+update:
+  post:
+    operationId: updatePost
+    summary: Update post
+    description: Update post
+    security:
+      - authCookie: []
+    requestBody:
+      $ref: ../requests/post/Update.yaml
+    responses:
+      '200':
+        $ref: ../responses/post/Update.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml

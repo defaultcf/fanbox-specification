@@ -1,0 +1,22 @@
+content:
+  multipart/form-data:
+    schema:
+      type: object
+      properties:
+        postId:
+          type: string
+        status:
+          type: string
+          enum: [draft, published]
+        feeRequired:
+          type: string
+        title:
+          type: string
+        body:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        tt:
+          type: string

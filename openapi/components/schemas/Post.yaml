@@ -4,23 +4,19 @@ type: object
 properties:
   id:
     type: string
-    description: Post's id
   title:
     type: string
-    description: Post's title
   status:
     type: string
-    description: Post's status
     enum: [draft, published]
+  permalink:
+    type: string
   fee_required:
     type: integer
-    description: Post's fee
   updated_at:
     type: string
-    description: Post's updated at
   published_at:
     type: string
-    description: Post's published at
   body:
     type: object
     properties:
