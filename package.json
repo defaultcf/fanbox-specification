@@ -2,6 +2,7 @@
   "name": "fanbox-specification",
   "version": "1.0.0",
   "description": "",
+  "packageManager": "pnpm@9.8.0",
   "scripts": {
     "bundle": "npx @redocly/cli bundle openapi/openapi.yaml",
     "dev": "npx @redocly/cli preview-docs openapi/openapi.yaml",
