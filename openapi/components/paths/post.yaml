@@ -30,7 +30,7 @@ getEditable:
           type: string
     responses:
       '200':
-        $ref: ../responses/post/Post.yaml
+        $ref: ../responses/post/Get.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
 
