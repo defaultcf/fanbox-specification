@@ -7,4 +7,4 @@ content:
         body:
           type: array
           items:
-            $ref: ../../schemas/Post.yaml
+            $ref: ../../schemas/FanboxPost.yaml

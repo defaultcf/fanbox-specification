@@ -1,10 +1,10 @@
-SessionId:
+sessionId:
   name: FANBOXSESSID
   type: apiKey
   in: cookie
   description: You must set Session ID in cookie.
 
-CSRFToken:
+csrfToken:
   name: X-CSRF-Token
   type: apiKey
   in: header

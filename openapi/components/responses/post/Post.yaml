@@ -5,5 +5,5 @@ content:
       type: object
       properties:
         body:
-          $ref: ../../schemas/Post.yaml
+          $ref: ../../schemas/FanboxPost.yaml
 

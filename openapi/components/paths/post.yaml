@@ -4,14 +4,9 @@ listManaged:
     summary: Get posts belongs with you
     description: Get posts belongs with you
     security:
-      - SessionId: []
+      - sessionId: []
     parameters:
-      - name: Origin
-        in: header
-        required: true
-        schema:
-          type: string
-          default: https://www.fanbox.cc
+      - $ref: '../parameters.yaml#/origin'
     responses:
       '200':
         $ref: ../responses/post/List.yaml
@@ -24,14 +19,9 @@ getEditable:
     summary: Get post
     description: Get post
     security:
-      - SessionId: []
+      - sessionId: []
     parameters:
-      - name: Origin
-        in: header
-        required: true
-        schema:
-          type: string
-          default: https://www.fanbox.cc
+      - $ref: '../parameters.yaml#/origin'
       - name: postId
         in: query
         description: post's id
@@ -50,15 +40,10 @@ create:
     summary: Create post
     description: Create post
     security:
-      - SessionId: []
-        CSRFToken: []
+      - sessionId: []
+        csrfToken: []
     parameters:
-      - name: Origin
-        in: header
-        required: true
-        schema:
-          type: string
-          default: https://www.fanbox.cc
+      - $ref: '../parameters.yaml#/origin'
     requestBody:
       content:
         application/json:
@@ -82,14 +67,9 @@ update:
     summary: Update post
     description: Update post
     security:
-      - SessionId: []
+      - sessionId: []
     parameters:
-      - name: Origin
-        in: header
-        required: true
-        schema:
-          type: string
-          default: https://www.fanbox.cc
+      - $ref: '../parameters.yaml#/origin'
     requestBody:
       $ref: ../requests/post/Update.yaml
     responses:
