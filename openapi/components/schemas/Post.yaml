@@ -72,7 +72,7 @@ properties:
               type: string
             url:
               type: string
-            post_info:
+            postInfo:
               type: object
               properties:
                 id:

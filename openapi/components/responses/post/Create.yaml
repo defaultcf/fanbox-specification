@@ -7,5 +7,5 @@ content:
         body:
           type: object
           properties:
-            post_id:
+            postId:
               type: string

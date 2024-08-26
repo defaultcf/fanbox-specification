@@ -1,0 +1,10 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [article]
+      required:
+        - type

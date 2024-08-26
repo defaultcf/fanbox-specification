@@ -6,7 +6,7 @@ listManaged:
     security:
       - sessionId: []
     parameters:
-      - $ref: '../parameters.yaml#/origin'
+      - $ref: ../parameters.yaml#/origin
     responses:
       '200':
         $ref: ../responses/post/List.yaml
@@ -21,7 +21,7 @@ getEditable:
     security:
       - sessionId: []
     parameters:
-      - $ref: '../parameters.yaml#/origin'
+      - $ref: ../parameters.yaml#/origin
       - name: postId
         in: query
         description: post's id
@@ -43,18 +43,9 @@ create:
       - sessionId: []
         csrfToken: []
     parameters:
-      - $ref: '../parameters.yaml#/origin'
+      - $ref: ../parameters.yaml#/origin
     requestBody:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type:
-                type: string
-                enum: [article]
-            required:
-              - type
+      $ref: ../requests/post/Create.yaml
     responses:
       '200':
         $ref: ../responses/post/Create.yaml
@@ -69,7 +60,7 @@ update:
     security:
       - sessionId: []
     parameters:
-      - $ref: '../parameters.yaml#/origin'
+      - $ref: ../parameters.yaml#/origin
     requestBody:
       $ref: ../requests/post/Update.yaml
     responses:
