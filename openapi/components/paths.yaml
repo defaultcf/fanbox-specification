@@ -6,3 +6,5 @@
   $ref: ./paths/post.yaml#/create
 /post.update:
   $ref: ./paths/post.yaml#/update
+/post.delete:
+  $ref: ./paths/post.yaml#/delete

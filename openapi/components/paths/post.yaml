@@ -68,3 +68,21 @@ update:
         $ref: ../responses/post/Update.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
+
+delete:
+  post:
+    operationId: deletePost
+    summary: Delete post
+    description: Delete post
+    security:
+      - sessionId: []
+        csrfToken: []
+    parameters:
+      - $ref: ../parameters.yaml#/origin
+    requestBody:
+      $ref: ../requests/post/Delete.yaml
+    responses:
+      '200':
+        $ref: ../responses/post/Delete.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml
