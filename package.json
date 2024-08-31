@@ -5,9 +5,9 @@
   "private": true,
   "engines": {
     "node": "22.7.0",
-    "pnpm": "9.8.0"
+    "pnpm": "9.9.0"
   },
-  "packageManager": "pnpm@9.8.0",
+  "packageManager": "pnpm@9.9.0",
   "scripts": {
     "bundle": "npx @redocly/cli bundle openapi/openapi.yaml",
     "dev": "npx @redocly/cli preview-docs openapi/openapi.yaml",
