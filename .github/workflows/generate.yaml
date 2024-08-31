@@ -1,0 +1,36 @@
+name: Generate
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - openapi/**
+  workflow_dispatch: # debug
+  
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: pnpm
+      - run: pnpm i --frozen-lockfile
+
+      - name: Bundle
+        run: pnpm redocly bundle -o generated/openapi.yaml openapi/openapi.yaml
+
+      # ここでコミットしているので、release は別のワークフローに分けている
+      - name: Commit
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: update bundle file"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

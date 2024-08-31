@@ -2,6 +2,11 @@
   "name": "fanbox-specification",
   "version": "1.0.0",
   "description": "",
+  "private": true,
+  "engines": {
+    "node": "22.7.0",
+    "pnpm": "9.8.0"
+  },
   "packageManager": "pnpm@9.8.0",
   "scripts": {
     "bundle": "npx @redocly/cli bundle openapi/openapi.yaml",
@@ -10,6 +15,7 @@
   },
   "license": "AGPL-3.0-only",
   "dependencies": {
-    "@redocly/cli": "^1.21.0"
+    "@redocly/cli": "^1.21.0",
+    "semantic-release": "^24.1.0"
   }
 }
