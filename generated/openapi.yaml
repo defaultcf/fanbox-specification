@@ -1,0 +1,284 @@
+openapi: 3.0.3
+info:
+  title: FANBOX Specification
+  description: This is pixiv FANBOX's API specification, NOT OFFICIAL
+  version: 1.0.0
+  license:
+    name: AGPL-3.0-only
+    url: https://www.gnu.org/licenses/agpl-3.0.html.en
+  termsOfService: https://policies.pixiv.net/
+  contact:
+    name: defaultcf
+    url: https://github.com/defaultcf/fanbox-specification
+servers:
+  - url: https://api.fanbox.cc
+paths:
+  /post.listManaged:
+    get:
+      operationId: listManagedPosts
+      summary: Get posts belongs with you
+      description: Get posts belongs with you
+      security:
+        - sessionId: []
+      parameters:
+        - $ref: '#/components/parameters/origin'
+      responses:
+        '200':
+          $ref: '#/components/responses/List'
+        '400':
+          $ref: '#/components/responses/MissingCredentials'
+  /post.getEditable:
+    get:
+      operationId: getEditablePost
+      summary: Get post
+      description: Get post
+      security:
+        - sessionId: []
+      parameters:
+        - $ref: '#/components/parameters/origin'
+        - name: postId
+          in: query
+          description: post's id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/Get'
+        '400':
+          $ref: '#/components/responses/MissingCredentials'
+  /post.create:
+    post:
+      operationId: createPost
+      summary: Create post
+      description: Create post
+      security:
+        - sessionId: []
+          csrfToken: []
+      parameters:
+        - $ref: '#/components/parameters/origin'
+      requestBody:
+        $ref: '#/components/requestBodies/Create'
+      responses:
+        '200':
+          $ref: '#/components/responses/Create'
+        '400':
+          $ref: '#/components/responses/MissingCredentials'
+  /post.update:
+    post:
+      operationId: updatePost
+      summary: Update post
+      description: Update post
+      security:
+        - sessionId: []
+      parameters:
+        - $ref: '#/components/parameters/origin'
+      requestBody:
+        $ref: '#/components/requestBodies/Update'
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+        '400':
+          $ref: '#/components/responses/MissingCredentials'
+components:
+  securitySchemes:
+    sessionId:
+      name: FANBOXSESSID
+      type: apiKey
+      in: cookie
+      description: You must set Session ID in cookie.
+    csrfToken:
+      name: X-CSRF-Token
+      type: apiKey
+      in: header
+      description: You must set CSTF Token in header
+  parameters:
+    origin:
+      name: Origin
+      in: header
+      required: true
+      schema:
+        type: string
+        default: https://www.fanbox.cc
+  schemas:
+    Post:
+      title: Post
+      description: ''
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        status:
+          type: string
+          enum:
+            - draft
+            - published
+        permalink:
+          type: string
+        feeRequired:
+          type: integer
+        updatedAt:
+          type: string
+        publishedAt:
+          type: string
+        body:
+          type: object
+          properties:
+            blocks:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                      - p
+                      - header
+                      - image
+                      - url_embed
+                  text:
+                    type: string
+                  imageId:
+                    type: string
+                  urlEmbedId:
+                    type: string
+                  styles:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                        offset:
+                          type: integer
+                        length:
+                          type: integer
+            imageMap:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  extension:
+                    type: string
+                  originalUrl:
+                    type: string
+                  thumbnailUrl:
+                    type: string
+            urlEmbedMap:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                    enum:
+                      - html.card
+                      - html
+                      - fanbox.post
+                      - default
+                  html:
+                    type: string
+                  url:
+                    type: string
+                  postInfo:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      creatorId:
+                        type: string
+  responses:
+    List:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              body:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+    MissingCredentials:
+      description: Error response due to missing credentials.
+      content:
+        application/json:
+          schema:
+            properties:
+              error:
+                type: string
+                example: general_error
+    Get:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              body:
+                $ref: '#/components/schemas/Post'
+    Create:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              body:
+                type: object
+                properties:
+                  postId:
+                    type: string
+    Update:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              body:
+                $ref: '#/components/schemas/Post'
+  requestBodies:
+    Create:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+                enum:
+                  - article
+            required:
+              - type
+    Update:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              postId:
+                type: string
+              status:
+                type: string
+                enum:
+                  - draft
+                  - published
+              feeRequired:
+                type: string
+              title:
+                type: string
+              body:
+                type: string
+              tags:
+                type: array
+                items:
+                  type: string
+              tt:
+                type: string
