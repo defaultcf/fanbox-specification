@@ -5,7 +5,7 @@
     "schedule:weekends",
     "github>aquaproj/aqua-renovate-config#2.3.1",
   ],
-  "packageManager": [
+  "packageRules": [
     {
       "groupName": "pnpm",
       "matchDepNames": ["pnpm", "pnpm/pnpm"],
