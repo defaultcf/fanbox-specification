@@ -24,7 +24,6 @@ jobs:
       - name: Bundle
         run: pnpm redocly bundle -o generated/openapi.yaml openapi/openapi.yaml
 
-      # ここでコミットしているので、release は別のワークフローに分けている
       - name: Commit
         run: |
           git config --local user.name "github-actions[bot]"
@@ -34,3 +33,50 @@ jobs:
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # for release
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: pnpm
+      - run: pnpm i --frozen-lockfile
+      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+        run: npm audit signatures
+
+      - name: Release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  #kick:
+  #  runs-on: ubuntu-latest
+  #  needs: release
+  #  strategy:
+  #    matrix:
+  #      include:
+  #        - owner: defaultcf
+  #          repo: fanbox-go
+  #  steps:
+
+  #    # TODO: ここで GitHub App を使ったトークンの作成
+
+  #    # ref: https://docs.github.com/ja/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event
+  #    - uses: octokit/request-action@v2.x
+  #      with:
+  #        route: POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
+  #        owner: ${{ matrix.owner }}
+  #        repo: ${{ matrix.repo }}
+  #        workflow_id: generate.yaml
+  #        ref: main
+  #        inputs:
+  #          version: VERSION
+  #      env:
+  #        GITHUB_TOKEN: ${{ secrets.APP }}
