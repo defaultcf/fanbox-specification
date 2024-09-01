@@ -80,6 +80,23 @@ paths:
           $ref: '#/components/responses/Update'
         '400':
           $ref: '#/components/responses/MissingCredentials'
+  /post.delete:
+    post:
+      operationId: deletePost
+      summary: Delete post
+      description: Delete post
+      security:
+        - sessionId: []
+          csrfToken: []
+      parameters:
+        - $ref: '#/components/parameters/origin'
+      requestBody:
+        $ref: '#/components/requestBodies/Delete'
+      responses:
+        '200':
+          $ref: '#/components/responses/Delete'
+        '400':
+          $ref: '#/components/responses/MissingCredentials'
 components:
   securitySchemes:
     sessionId:
@@ -244,6 +261,15 @@ components:
             properties:
               body:
                 $ref: '#/components/schemas/Post'
+    Delete:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              body:
+                type: 'null'
   requestBodies:
     Create:
       content:
@@ -282,3 +308,13 @@ components:
                   type: string
               tt:
                 type: string
+    Delete:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              postId:
+                type: string
+            required:
+              - postId
