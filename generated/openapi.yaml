@@ -22,6 +22,7 @@ paths:
         - sessionId: []
       parameters:
         - $ref: '#/components/parameters/origin'
+        - $ref: '#/components/parameters/userAgent'
       responses:
         '200':
           $ref: '#/components/responses/List'
@@ -36,6 +37,7 @@ paths:
         - sessionId: []
       parameters:
         - $ref: '#/components/parameters/origin'
+        - $ref: '#/components/parameters/userAgent'
         - name: postId
           in: query
           description: post's id
@@ -57,6 +59,7 @@ paths:
           csrfToken: []
       parameters:
         - $ref: '#/components/parameters/origin'
+        - $ref: '#/components/parameters/userAgent'
       requestBody:
         $ref: '#/components/requestBodies/Create'
       responses:
@@ -73,6 +76,7 @@ paths:
         - sessionId: []
       parameters:
         - $ref: '#/components/parameters/origin'
+        - $ref: '#/components/parameters/userAgent'
       requestBody:
         $ref: '#/components/requestBodies/Update'
       responses:
@@ -90,6 +94,7 @@ paths:
           csrfToken: []
       parameters:
         - $ref: '#/components/parameters/origin'
+        - $ref: '#/components/parameters/userAgent'
       requestBody:
         $ref: '#/components/requestBodies/Delete'
       responses:
@@ -117,6 +122,13 @@ components:
       schema:
         type: string
         default: https://www.fanbox.cc
+    userAgent:
+      name: User-Agent
+      description: You must set user agent.
+      in: header
+      required: true
+      schema:
+        type: string
   schemas:
     Post:
       title: Post
