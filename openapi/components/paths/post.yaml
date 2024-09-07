@@ -7,6 +7,7 @@ listManaged:
       - sessionId: []
     parameters:
       - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
     responses:
       '200':
         $ref: ../responses/post/List.yaml
@@ -22,6 +23,7 @@ getEditable:
       - sessionId: []
     parameters:
       - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
       - name: postId
         in: query
         description: post's id
@@ -44,6 +46,7 @@ create:
         csrfToken: []
     parameters:
       - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
     requestBody:
       $ref: ../requests/post/Create.yaml
     responses:
@@ -61,6 +64,7 @@ update:
       - sessionId: []
     parameters:
       - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
     requestBody:
       $ref: ../requests/post/Update.yaml
     responses:
@@ -79,6 +83,7 @@ delete:
         csrfToken: []
     parameters:
       - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
     requestBody:
       $ref: ../requests/post/Delete.yaml
     responses:

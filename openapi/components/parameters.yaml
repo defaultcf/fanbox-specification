@@ -5,3 +5,11 @@ origin:
   schema:
     type: string
     default: https://www.fanbox.cc
+
+userAgent:
+  name: User-Agent
+  description: You must set user agent.
+  in: header
+  required: true
+  schema:
+    type: string
