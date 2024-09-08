@@ -3,6 +3,8 @@ listManaged:
     operationId: listManagedPosts
     summary: Get posts belongs with you
     description: Get posts belongs with you
+    tags:
+      - post
     security:
       - sessionId: []
     parameters:
@@ -19,6 +21,8 @@ getEditable:
     operationId: getEditablePost
     summary: Get post
     description: Get post
+    tags:
+      - post
     security:
       - sessionId: []
     parameters:
@@ -41,6 +45,8 @@ create:
     operationId: createPost
     summary: Create post
     description: Create post
+    tags:
+      - post
     security:
       - sessionId: []
         csrfToken: []
@@ -60,6 +66,8 @@ update:
     operationId: updatePost
     summary: Update post
     description: Update post
+    tags:
+      - post
     security:
       - sessionId: []
     parameters:
@@ -78,6 +86,8 @@ delete:
     operationId: deletePost
     summary: Delete post
     description: Delete post
+    tags:
+      - post
     security:
       - sessionId: []
         csrfToken: []

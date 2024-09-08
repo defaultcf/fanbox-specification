@@ -17,3 +17,5 @@ paths:
 components:
   securitySchemes:
     $ref: components/securitySchemes.yaml
+tags:
+  $ref: components/tags.yaml
