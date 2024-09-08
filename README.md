@@ -14,7 +14,7 @@ Currently, only a few APIs are supported.
   - [x] Get
   - [x] Create
   - [x] Update
-  - [ ] Delete
+  - [x] Delete
 - [ ] Creator
 - [ ] Plan
 
