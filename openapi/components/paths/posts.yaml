@@ -4,7 +4,7 @@ listManaged:
     summary: Get posts belongs with you
     description: Get posts belongs with you
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
     parameters:
@@ -22,7 +22,7 @@ getEditable:
     summary: Get post
     description: Get post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
     parameters:
@@ -46,7 +46,7 @@ create:
     summary: Create post
     description: Create post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
         csrfToken: []
@@ -67,7 +67,7 @@ update:
     summary: Update post
     description: Update post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
     parameters:
@@ -87,7 +87,7 @@ delete:
     summary: Delete post
     description: Delete post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
         csrfToken: []
