@@ -8,3 +8,8 @@
   $ref: ./paths/posts.yaml#/update
 /post.delete:
   $ref: ./paths/posts.yaml#/delete
+
+/relationship.listFans:
+  $ref: paths/relationships.yaml#/listFans
+/relationship.getFan:
+  $ref: paths/relationships.yaml#/getFan

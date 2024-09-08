@@ -1,2 +1,5 @@
 - name: posts
   description: Manage posts
+
+- name: relationships
+  description: Manage fans and followers

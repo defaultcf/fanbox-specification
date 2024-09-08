@@ -1,0 +1,49 @@
+listFans:
+  get:
+    operationId: listFans
+    summary: Get fans
+    description: Get fans belongs with you
+    tags:
+      - relationships
+    security:
+      - sessionId: []
+    parameters:
+      - name: status
+        in: query
+        description: filter by status
+        required: true
+        schema:
+          type: string
+          enum: [all, supporter, follower]
+      - name: planId
+        in: query
+        description: filter by planId
+        schema:
+          type: string
+    responses:
+      '200':
+        $ref: ../responses/relationships/List.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml
+
+getFan:
+  get:
+    operationId: getFan
+    summary: Get fan
+    description: Get fan
+    tags:
+      - relationships
+    security:
+      - sessionId: []
+    parameters:
+      - name: userId
+        in: query
+        description: user's id
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        $ref: ../responses/relationships/Get.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml

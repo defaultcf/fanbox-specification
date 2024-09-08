@@ -1,0 +1,11 @@
+title: User
+description: ''
+type: object
+properties:
+  userId:
+    type: string
+  name:
+    type: string
+  iconUrl:
+    type: string
+    format: uri
