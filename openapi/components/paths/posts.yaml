@@ -1,7 +1,7 @@
 listManaged:
   get:
     operationId: listManagedPosts
-    summary: Get posts belongs with you
+    summary: Get posts
     description: Get posts belongs with you
     tags:
       - posts
