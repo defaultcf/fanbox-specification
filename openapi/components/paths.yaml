@@ -1,10 +1,10 @@
 /post.listManaged:
-  $ref: ./paths/post.yaml#/listManaged
+  $ref: ./paths/posts.yaml#/listManaged
 /post.getEditable:
-  $ref: ./paths/post.yaml#/getEditable
+  $ref: ./paths/posts.yaml#/getEditable
 /post.create:
-  $ref: ./paths/post.yaml#/create
+  $ref: ./paths/posts.yaml#/create
 /post.update:
-  $ref: ./paths/post.yaml#/update
+  $ref: ./paths/posts.yaml#/update
 /post.delete:
-  $ref: ./paths/post.yaml#/delete
+  $ref: ./paths/posts.yaml#/delete
