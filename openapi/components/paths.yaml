@@ -9,6 +9,9 @@
 /post.delete:
   $ref: ./paths/posts.yaml#/delete
 
+/plan.listCreator:
+  $ref: paths/plans.yaml#/listCreator
+
 /relationship.listFans:
   $ref: paths/relationships.yaml#/listFans
 /relationship.getFan:
