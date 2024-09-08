@@ -8,6 +8,8 @@ listFans:
     security:
       - sessionId: []
     parameters:
+      - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
       - name: status
         in: query
         description: filter by status
@@ -36,6 +38,8 @@ getFan:
     security:
       - sessionId: []
     parameters:
+      - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
       - name: userId
         in: query
         description: user's id
