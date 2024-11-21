@@ -1,0 +1,17 @@
+listCreator:
+  get:
+    operationId: listCreatorPlans
+    summary: Get plans
+    description: Get plans
+    tags:
+      - plans
+    security:
+      - sessionId: []
+    parameters:
+      - $ref: ../parameters.yaml#/origin
+      - $ref: ../parameters.yaml#/userAgent
+    responses:
+      '200':
+        $ref: ../responses/plans/List.yaml
+      '400':
+        $ref: ../responses/error/MissingCredentials.yaml
