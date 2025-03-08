@@ -12,6 +12,9 @@ content:
           type: string
         title:
           type: string
+        commentingPermissionScope:
+          type: string
+          enum: [everyone, supporters, none]
         body:
           type: string
         tags:
