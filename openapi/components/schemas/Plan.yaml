@@ -1,0 +1,24 @@
+title: Plan
+description: ''
+type: object
+properties:
+  id:
+    type: string
+  title:
+    type: string
+  fee:
+    type: integer
+  description:
+    type: string
+  coverImageUrl:
+    type: string
+    format: uri
+  user:
+    $ref: ./User.yaml
+  creatorId:
+    type: string
+  hasAdultContent:
+    type: boolean
+  paymentMethod:
+    type: object
+    description: "maybe null"

@@ -1,0 +1,10 @@
+description: OK
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        body:
+          type: array
+          items:
+            $ref: ../../schemas/Plan.yaml

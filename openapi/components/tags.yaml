@@ -1,2 +1,8 @@
-- name: post
-  description: Manage posts on FANBOX
+- name: posts
+  description: Manage posts
+
+- name: plans
+  description: Manage plans
+
+- name: relationships
+  description: Manage fans and followers

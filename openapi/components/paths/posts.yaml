@@ -1,10 +1,10 @@
 listManaged:
   get:
     operationId: listManagedPosts
-    summary: Get posts belongs with you
+    summary: Get posts
     description: Get posts belongs with you
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
     parameters:
@@ -12,7 +12,7 @@ listManaged:
       - $ref: ../parameters.yaml#/userAgent
     responses:
       '200':
-        $ref: ../responses/post/List.yaml
+        $ref: ../responses/posts/List.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
 
@@ -22,7 +22,7 @@ getEditable:
     summary: Get post
     description: Get post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
     parameters:
@@ -36,7 +36,7 @@ getEditable:
           type: string
     responses:
       '200':
-        $ref: ../responses/post/Get.yaml
+        $ref: ../responses/posts/Get.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
 
@@ -46,7 +46,7 @@ create:
     summary: Create post
     description: Create post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
         csrfToken: []
@@ -57,7 +57,7 @@ create:
       $ref: ../requests/post/Create.yaml
     responses:
       '200':
-        $ref: ../responses/post/Create.yaml
+        $ref: ../responses/posts/Create.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
 
@@ -67,7 +67,7 @@ update:
     summary: Update post
     description: Update post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
     parameters:
@@ -77,7 +77,7 @@ update:
       $ref: ../requests/post/Update.yaml
     responses:
       '200':
-        $ref: ../responses/post/Update.yaml
+        $ref: ../responses/posts/Update.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
 
@@ -87,7 +87,7 @@ delete:
     summary: Delete post
     description: Delete post
     tags:
-      - post
+      - posts
     security:
       - sessionId: []
         csrfToken: []
@@ -98,6 +98,6 @@ delete:
       $ref: ../requests/post/Delete.yaml
     responses:
       '200':
-        $ref: ../responses/post/Delete.yaml
+        $ref: ../responses/posts/Delete.yaml
       '400':
         $ref: ../responses/error/MissingCredentials.yaml
