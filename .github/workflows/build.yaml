@@ -22,7 +22,7 @@ jobs:
       - uses: actions/configure-pages@v5
       - name: Build page
         run: pnpm redocly build-docs openapi/openapi.yaml -o dist/index.html
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
