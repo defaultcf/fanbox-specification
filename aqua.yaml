@@ -11,4 +11,4 @@ registries:
   ref: v4.474.0 # renovate: depName=aquaproj/aqua-registry
 packages:
 - name: nodejs/node@v22.22.0
-- name: pnpm/pnpm@v9.15.9
+- name: pnpm/pnpm@v10.30.3
