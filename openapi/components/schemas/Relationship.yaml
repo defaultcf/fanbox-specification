@@ -1,0 +1,13 @@
+title: Relationship
+description: ''
+type: object
+properties:
+  status:
+    type: string
+    enum: [supporter, follower]
+  user:
+    $ref: ./User.yaml
+  activedAt:
+    type: string
+  note:
+    type: string
