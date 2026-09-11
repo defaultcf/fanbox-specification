@@ -15,7 +15,7 @@
   },
   "license": "AGPL-3.0-only",
   "dependencies": {
-    "@redocly/cli": "^1.21.0",
+    "@redocly/cli": "^2.0.0",
     "semantic-release": "^24.1.0"
   }
 }
